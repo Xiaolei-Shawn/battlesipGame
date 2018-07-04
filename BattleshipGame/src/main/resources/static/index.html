@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<body>
+<h1>Board game hub</h1>
+<ul id="gameHub">
+</ul>
+<script>
+	const gameHub = document.getElementById("gameHub");
+	async function executeIt() {
+		const games = ["battleship"];
+		const mapFunc = async (game) => {
+			const gameItemElem = document.createElement('li');
+			const titleNode = document.createTextNode(game);
+			const urlNode = document.createElement('a');
+			urlNode.setAttribute("href", "/battleship/medium");
+			urlNode.appendChild(titleNode);
+			gameItemElem.appendChild(urlNode);
+			gameHub.appendChild(gameItemElem);
+		}
+		games.map(mapFunc);
+	}
+	executeIt();
+	
+</script>
+</body>
+</html>
