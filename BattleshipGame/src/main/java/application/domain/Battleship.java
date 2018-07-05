@@ -8,6 +8,8 @@ import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import application.BoardGameHubLauncher;
+
 /**
  * @author XiaDu
  *
@@ -38,7 +40,7 @@ public class Battleship extends Game{
 	public void loadBoard(String level) throws IOException {
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		InputStream is = Battleship.class.getResourceAsStream(level);
+		InputStream is = BoardGameHubLauncher.class.getResourceAsStream(level);
 		Board board = null;
 		try {
 			board = objectMapper.readValue(is, Board.class);
@@ -49,6 +51,7 @@ public class Battleship extends Game{
 		}
 
 		this.setBoard(board);
+		this.setTurnsleft(board.getTurns());
 	}
 
 }
