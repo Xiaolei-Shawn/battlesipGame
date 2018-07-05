@@ -3,13 +3,6 @@
  */
 package application.domain;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import application.BoardGameHubLauncher;
-
 /**
  * @author XiaDu
  *
@@ -17,14 +10,11 @@ import application.BoardGameHubLauncher;
 public class Battleship extends Game{
 	
 	private Integer turnsleft;
-	private Board board;
+	private BattleshipBoard board;
 	
-	public Board getBoard() {
-		return board;
-	}
-
-	public void setBoard(Board board) {
-		this.board = board;
+	public Battleship (String source){
+		this.board = loadBoard(source);
+		this.turnsleft = this.board.getTurns();
 	}
 
 	public Integer getTurnsleft() {
@@ -34,24 +24,19 @@ public class Battleship extends Game{
 	public void setTurnsleft(Integer turnsleft) {
 		this.turnsleft = turnsleft;
 	}
+	
 
+	public BattleshipBoard getBoard() {
+		return board;
+	}
+
+	public void setBoard(BattleshipBoard board) {
+		this.board = board;
+	}
 
 	@Override
-	public void loadBoard(String level) throws IOException {
-		
-		ObjectMapper objectMapper = new ObjectMapper();
-		InputStream is = BoardGameHubLauncher.class.getResourceAsStream(level);
-		Board board = null;
-		try {
-			board = objectMapper.readValue(is, Board.class);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			is.close();
-		}
-
-		this.setBoard(board);
-		this.setTurnsleft(board.getTurns());
+	public BattleshipBoard loadBoard(String source) {
+		return new BattleshipBoard().initBoard(source);
 	}
 
 }

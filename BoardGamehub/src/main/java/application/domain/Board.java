@@ -9,25 +9,7 @@ import java.util.List;
  * @author XiaDu
  *
  */
-public class Board {
-	
-	private Integer turns;
-	private Integer targets;
-	public Integer getTurns() {
-		return turns;
-	}
-
-	public void setTurns(Integer turns) {
-		this.turns = turns;
-	}
-
-	public Integer getTargets() {
-		return targets;
-	}
-
-	public void setTargets(Integer targets) {
-		this.targets = targets;
-	}
+public abstract class Board {
 
 	public List<String> getRows() {
 		return rows;
@@ -39,12 +21,8 @@ public class Board {
 
 	private List<String> rows;
 	
-	public Board initBoard() {
-		return null;
-	}
+	public abstract Board initBoard(String level);
 	
-	public void draw(int x, int y) {
-		
-	}
+	public abstract void draw(int x, int y);
 
 }

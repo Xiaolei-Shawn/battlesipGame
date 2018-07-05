@@ -3,7 +3,6 @@
  */
 package application.gameFactory;
 
-import java.io.IOException;
 import java.util.function.BiFunction;
 
 import org.springframework.stereotype.Component;
@@ -30,16 +29,8 @@ public class GameFactory {
 		}
 	}
 
-	private Game startBattleshipGame(String source) {
-		Game battleship = new Battleship();
-
-		try {
-			battleship.loadBoard(source);
-		} catch (IOException e) {
-			System.err.println("Loading board failed!");
-			e.printStackTrace();
-		}
-		return battleship;
+	private Battleship startBattleshipGame(String source) {
+		return new Battleship(source);
 
 	}
 

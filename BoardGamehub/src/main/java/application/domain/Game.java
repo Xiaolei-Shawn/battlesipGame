@@ -11,5 +11,5 @@ import java.io.IOException;
  */
 public abstract class Game {
 
-	public abstract void loadBoard(String level) throws IOException;
+	public abstract Board loadBoard(String level) throws IOException;
 }
