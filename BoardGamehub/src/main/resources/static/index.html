@@ -4,10 +4,10 @@
 <h1>Board game hub</h1>
 <ul id="gameHub">
 </ul>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 	const gameHub = document.getElementById("gameHub");
 	async function executeIt() {
-		const games = ["battleship"];
 		const mapFunc = async (game) => {
 			const gameItemElem = document.createElement('li');
 			const titleNode = document.createTextNode(game);
@@ -17,7 +17,7 @@
 			gameItemElem.appendChild(urlNode);
 			gameHub.appendChild(gameItemElem);
 		}
-		games.map(mapFunc);
+		$.get('/', (games) => games.map(mapFunc));
 	}
 	executeIt();
 	
