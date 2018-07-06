@@ -5,22 +5,7 @@
 <ul id="gameHub">
 </ul>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script>
-	const gameHub = document.getElementById("gameHub");
-	async function executeIt() {
-		const mapFunc = async (game) => {
-			const gameItemElem = document.createElement('li');
-			const titleNode = document.createTextNode(game);
-			const urlNode = document.createElement('a');
-			urlNode.setAttribute("href", "/battleship/medium");
-			urlNode.appendChild(titleNode);
-			gameItemElem.appendChild(urlNode);
-			gameHub.appendChild(gameItemElem);
-		}
-		$.get('/', (games) => games.map(mapFunc));
-	}
-	executeIt();
-	
+<script src="boardGameHub.js">
 </script>
 </body>
 </html>
