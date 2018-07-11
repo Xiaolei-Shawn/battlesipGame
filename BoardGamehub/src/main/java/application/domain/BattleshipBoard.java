@@ -18,6 +18,15 @@ public class BattleshipBoard extends Board {
 
 	private Integer turns;
 	private Integer targets;
+	private Integer turnsleft;
+	public Integer getTurnsleft() {
+		return turnsleft;
+	}
+
+	public void setTurnsleft(Integer turnsleft) {
+		this.turnsleft = turnsleft;
+	}
+
 	public Integer getTurns() {
 		return turns;
 	}
@@ -44,6 +53,7 @@ public class BattleshipBoard extends Board {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
+		setTurnsleft(board.getTurns());
 		return board;
 	}
 

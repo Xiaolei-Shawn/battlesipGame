@@ -9,20 +9,11 @@ package application.domain;
  */
 public class Battleship extends Game{
 	
-	private Integer turnsleft;
+	
 	private BattleshipBoard board;
 	
 	public Battleship (String source){
 		this.board = loadBoard(source);
-		this.turnsleft = this.board.getTurns();
-	}
-
-	public Integer getTurnsleft() {
-		return turnsleft;
-	}
-
-	public void setTurnsleft(Integer turnsleft) {
-		this.turnsleft = turnsleft;
 	}
 	
 
